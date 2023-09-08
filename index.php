@@ -2,16 +2,7 @@
 
 $passwordLength = $_GET['passwordLength'] ?? '';
 
-function generatePassword($passwLength) {
-  $asciiCharacters = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
-  $generatedPassword = "";
-
-  for ($i = 0; $i < $passwLength; $i++) {
-    $randomChar = rand(0, strlen($asciiCharacters)) . " ";
-    $generatedPassword .= $asciiCharacters[$randomChar];
-  }
-  return $generatedPassword;
-}
+include "./functions.php"
 
 ?>
 
@@ -46,7 +37,7 @@ function generatePassword($passwLength) {
           <button class="btn btn-primary" type="submit">Generate</button>
         </form>
 
-        <div class="my-3">La tua Password è: <span class="fw-bold"><?php echo generatePassword($passwordLength, $asciiCharacters); ?></span></div>
+        <div class="my-3">La tua Password è: <span class="fw-bold"><?php echo generatePassword($passwordLength); ?></span></div>
       </div>
     </div>
   </div>
